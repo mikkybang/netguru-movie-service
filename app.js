@@ -5,6 +5,8 @@ const cors = require("cors");
 
 const app = express();
 
+app.use(cors());
+
 app.use((error, req, res, next) => {
   console.log(error);
   if (err.status === 404) {
