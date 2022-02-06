@@ -1,0 +1,19 @@
+{
+  "name": "netguru-movie-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikkybang/netguru-movie-service.git"
+  },
+  "author": "Michael Efemena",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikkybang/netguru-movie-service/issues"
+  },
+  "homepage": "https://github.com/mikkybang/netguru-movie-service#readme"
+}
