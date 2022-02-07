@@ -1,5 +1,6 @@
 const MovieService = require("../../services/movies");
 const Movie = require("../../models/movies");
+const mongoose = require("mongoose");
 
 require("../../config");
 const basicUser = {
@@ -27,6 +28,7 @@ describe("Movie Service Test", () => {
   });
   afterAll(async () => {
     await Movie.deleteMany({});
+    mongoose.disconnect();
   });
   it("should create a new movie given the title", async () => {
     const data = {

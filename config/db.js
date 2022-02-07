@@ -4,5 +4,3 @@ mongoose.connect(process.env.DATABASE, {
 });
 
 mongoose.connection.on('connected', () => console.log('Database connected'));
-mongoose.connection.on('disconnected', 
-    () => console.log('Database disconnected'));
