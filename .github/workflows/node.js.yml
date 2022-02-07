@@ -1,6 +1,6 @@
 name: Run tests
 
-on: [push]
+on: [push, pull_request]
 
 env:
   PORT: 7000
@@ -13,8 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [8.x, 10.x, 12.x, 13.x]
-        mongodb-version: [4.0, 4.2]
+        node-version: [12.x, ]
+        mongodb-version: [4.2]
 
     steps:
       - name: Git checkout
