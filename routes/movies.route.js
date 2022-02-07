@@ -9,3 +9,5 @@ router
   .route("/")
   .post(authenticate, createMovies)
   .get(authenticate, getUserMovie);
+
+module.exports = router;

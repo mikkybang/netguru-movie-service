@@ -6,15 +6,17 @@ module.exports = async (data, user) => {
     throw new Error("Title is required");
   }
   try {
+    const API_KEY = "59c77920";
     const result = await axios.get(
-      `http://www.omdbapi.com/?apikey=${yourkey}&t=${data.title}`
+      `http://www.omdbapi.com/?apikey=${API_KEY}&t=${data.title}`
     );
     const movie = result.data;
+    console.log(result);
     const newMovie = {
       userId: user.userId,
-      title: movie.title,
-      released: movie.released,
-      director: movie.director,
+      title: movie.Title,
+      released: movie.Released,
+      director: movie.Director,
     };
     const savedMovie = await Movie.create(newMovie);
     return savedMovie;

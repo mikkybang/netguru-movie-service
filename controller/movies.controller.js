@@ -1,6 +1,6 @@
 const { create, get } = require("../services/movies");
 
-const createMovies = (req, res) => {
+const createMovies = async (req, res) => {
   try {
     if (!req.body.title) throw new Error("title must be provided");
     const data = {

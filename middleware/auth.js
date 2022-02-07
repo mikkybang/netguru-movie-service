@@ -1,12 +1,13 @@
 const jwt = require("jsonwebtoken");
 
-export const authenticate = async (req, res, next) => {
+module.exports = async (req, res, next) => {
   if (
     req.headers.authorization &&
     req.headers.authorization.startsWith("Bearer")
   ) {
     try {
       token = req.headers.authorization.split(" ")[1];
+      console.log(token)
       if (token) {
         let decoded;
         try {

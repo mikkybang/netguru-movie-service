@@ -8,7 +8,7 @@ module.exports = async (user) => {
     });
 
     if (movies.length < 1) {
-      throw new Error("User does not have movies");
+      return [];
     }
     return movies;
   } catch (error) {
