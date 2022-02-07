@@ -16,10 +16,6 @@ module.exports = async (data, user) => {
       },
     });
 
-    console.log(currentMonthMovies);
-
-    console.log(user);
-
     if (user.role === "basic" && currentMonthMovies == 5) {
       throw new Error(
         "You have exceeded your limit of 5 movies per month, upgrade to premium to get unlimited access"
