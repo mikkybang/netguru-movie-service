@@ -84,22 +84,22 @@ Response
 {
      "message": "Movies",
     "data": [
-        {
-            "_id": "6201364154a6d6ada186dd03",
+         {
+            "_id": "62014d3edeedd2194f126325",
             "userId": 434,
-            "title": "Ant-Man",
-            "released": "2015-07-16T23:00:00.000Z",
-            "genre": "Action, Adventure, Comedy",
-            "director": "Peyton Reed",
+            "title": "Batman",
+            "released": "1989-06-22T23:00:00.000Z",
+            "genre": "Action, Adventure",
+            "director": "Tim Burton",
             "__v": 0
         },
         {
-            "_id": "62014310775514aaee3f198e",
+            "_id": "62014d4adeedd2194f126328",
             "userId": 434,
-            "title": "Ant-Man",
-            "released": "2015-07-16T23:00:00.000Z",
-            "genre": "Action, Adventure, Comedy",
-            "director": "Peyton Reed",
+            "title": "Superman",
+            "released": "1978-12-14T23:00:00.000Z",
+            "genre": "Action, Adventure, Sci-Fi",
+            "director": "Richard Donner",
             "__v": 0
         },
         {
@@ -111,6 +111,6 @@ Response
             "director": "Peyton Reed",
             "__v": 0
         },
-        }
+    ]
 }
 ```
