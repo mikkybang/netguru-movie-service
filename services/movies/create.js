@@ -26,6 +26,9 @@ module.exports = async (data, user) => {
       `http://www.omdbapi.com/?apikey=${API_KEY}&t=${data.title}`
     );
     const movie = result.data;
+    if (!movie.Response) {
+      throw new Error("Movie not found");
+    }
     const newMovie = {
       userId: user.userId,
       title: movie.Title,

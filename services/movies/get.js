@@ -4,9 +4,8 @@ module.exports = async (user) => {
   if (!user) throw new Error("User not found");
   try {
     const movies = await Movie.find({
-      userId: user.id,
+      userId: user.userId,
     });
-
     if (movies.length < 1) {
       return [];
     }

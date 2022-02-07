@@ -1,5 +1,7 @@
 const MovieService = require("../../services/movies");
 const Movie = require("../../models/movies");
+
+require("../../config");
 const basicUser = {
   userId: 124,
   name: "Basic Kelvin",
@@ -20,7 +22,7 @@ const premiumUser = {
   sub: "125",
 };
 describe("Movie Service Test", () => {
-  beforeAll(async () => {
+  beforeEach(async () => {
     await Movie.remove({});
   });
   afterAll(async () => {
@@ -28,7 +30,7 @@ describe("Movie Service Test", () => {
   });
   it("should create a new movie given the title", async () => {
     const data = {
-      title: "The Kingsman",
+      title: "Merlin",
     };
     const movie = await MovieService.create(data, basicUser);
     expect(movie).toBeDefined();
@@ -36,6 +38,14 @@ describe("Movie Service Test", () => {
     expect(movie.title).toBeDefined();
     expect(movie.released).toBeDefined();
     expect(movie.title).toBeDefined();
+  });
 
+  it("should fetch all user's movies", async () => {
+    const data = {
+      title: "Merlin",
+    };
+    await MovieService.create(data, premiumUser);
+    const movies = await MovieService.get(premiumUser);
+    expect(movies.length).toEqual(1);
   });
 });
