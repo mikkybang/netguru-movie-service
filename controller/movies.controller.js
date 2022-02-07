@@ -13,6 +13,7 @@ const createMovies = async (req, res) => {
       data: result,
     });
   } catch (error) {
+    // console.log(error.message);
     res.status(400).json({
       message: "Error creating movie",
       error: error.message,

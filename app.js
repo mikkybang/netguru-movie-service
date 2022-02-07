@@ -12,7 +12,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/movies", movieRoutes);
 
 app.use((error, req, res, next) => {
-  console.log(error);
   if (error.status === 404) {
     return res.status(200).json({
       message:
