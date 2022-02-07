@@ -31,6 +31,7 @@ module.exports = async (data, user) => {
       title: movie.Title,
       released: movie.Released,
       director: movie.Director,
+      genre: movie.Genre,
     };
     const savedMovie = await Movie.create(newMovie);
     return savedMovie;

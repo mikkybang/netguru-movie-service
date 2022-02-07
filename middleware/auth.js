@@ -7,7 +7,7 @@ module.exports = async (req, res, next) => {
   ) {
     try {
       token = req.headers.authorization.split(" ")[1];
-      console.log(token)
+      console.log(token);
       if (token) {
         let decoded;
         try {
@@ -17,13 +17,23 @@ module.exports = async (req, res, next) => {
             next();
           }
         } catch (e) {
-          throw new Error("Invalid token");
+          res
+            .status(401)
+            .json({ message: "Invalid token", error: "token has expired" });
+          return;
         }
       }
     } catch (e) {
-      throw new Error("Invalid token");
+      res
+        .status(401)
+        .json({ message: "Invalid token", error: "token is not valid" });
+      return;
     }
   } else {
-    throw new Error("No Authorization token");
+    res.status(401).json({
+      message: "Authorizarion failed",
+      error: "No Authorization token",
+    });
+    return;
   }
 };
