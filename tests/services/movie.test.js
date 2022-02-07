@@ -23,10 +23,10 @@ const premiumUser = {
 };
 describe("Movie Service Test", () => {
   beforeEach(async () => {
-    await Movie.remove({});
+    await Movie.deleteMany({});
   });
   afterAll(async () => {
-    await Movie.remove({});
+    await Movie.deleteMany({});
   });
   it("should create a new movie given the title", async () => {
     const data = {
@@ -47,5 +47,32 @@ describe("Movie Service Test", () => {
     await MovieService.create(data, premiumUser);
     const movies = await MovieService.get(premiumUser);
     expect(movies.length).toEqual(1);
+  });
+
+  it("should throw error if title is not provided", async () => {
+    const data = {};
+    try {
+      await MovieService.create(data, basicUser);
+    } catch (error) {
+      expect(error.message).toBe("Title is required");
+    }
+  });
+
+  it("should throw error if limit passed", async () => {
+    const data = {
+      title: "Merlin",
+    };
+    try {
+      await MovieService.create(data, basicUser);
+      await MovieService.create(data, basicUser);
+      await MovieService.create(data, basicUser);
+      await MovieService.create(data, basicUser);
+      await MovieService.create(data, basicUser);
+      await MovieService.create(data, basicUser);
+    } catch (error) {
+      expect(error.message).toBe(
+        "You have exceeded your limit of 5 movies per month, upgrade to premium to get unlimited access"
+      );
+    }
   });
 });

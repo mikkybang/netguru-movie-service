@@ -39,7 +39,6 @@ module.exports = async (data, user) => {
     const savedMovie = await Movie.create(newMovie);
     return savedMovie;
   } catch (error) {
-    console.log(error);
     throw new Error(error.message);
   }
 };
